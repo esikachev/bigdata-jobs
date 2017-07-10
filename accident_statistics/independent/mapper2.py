@@ -5,13 +5,12 @@ import sys
 
 from BeautifulSoup import BeautifulSoup
 import urllib2
-import re
 
 
 for line in sys.stdin:
     line = line.strip()
     year, year_link = line.split()
-    
+
     html_page = urllib2.urlopen(year_link)
     parsed_html = BeautifulSoup(html_page)
 

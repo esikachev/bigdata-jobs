@@ -4,14 +4,14 @@ import sys
 
 from BeautifulSoup import BeautifulSoup
 import urllib2
-import re
 
 SELECT_FIELDS = ("AC Type", "Aboard", "Fatalities")
+
 
 for line in sys.stdin:
     line = line.strip()
     year, year_link = line.split()
-    
+
     html_page = urllib2.urlopen(year_link)
     parsed_html = BeautifulSoup(html_page)
 
@@ -28,4 +28,5 @@ for line in sys.stdin:
     print ("{year} '{ac_type}' 1 {aboard} "
            "{fatalities}".format(year=year, ac_type=dict_table["ACType"],
                                  aboard=dict_table["Aboard"].split()[0],
-                                 fatalities=dict_table["Fatalities"].split()[0]))
+                                 fatalities=(
+                                     dict_table["Fatalities"].split()[0])))

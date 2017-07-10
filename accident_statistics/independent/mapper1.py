@@ -4,7 +4,6 @@ import os
 
 from BeautifulSoup import BeautifulSoup
 import urllib2
-import re
 
 URL_OF_DATASET = "http://www.planecrashinfo.com/database.htm"
 FORK_OF_YEARS = xrange(1920, 2018)
